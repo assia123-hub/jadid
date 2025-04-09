@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aschalh <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/09 20:32:44 by aschalh           #+#    #+#             */
+/*   Updated: 2025/04/09 21:14:27 by aschalh          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static int count_words(char const *s, char c)
+static int	count_words(char const *s, char c)
 {
-	int i;
-	int count;
-	int in_word;
+	int	i;
+	int	count;
+	int	in_word;
 
 	i = 0;
 	count = 0;
@@ -17,26 +29,22 @@ static int count_words(char const *s, char c)
 			in_word = 1;
 		}
 		else if (s[i] == c)
-		{
 			in_word = 0;
-		}
 		i++;
 	}
 	return (count);
 }
 
-static char *fill_word(char const *s, char c)
+static char	*fill_word(char const *s, char c)
 {
-	int len;
-	int i;
-	char *str;
+	int		len;
+	int		i;
+	char	*str;
 
 	len = 0;
 	i = 0;
 	while (s[len] && s[len] != c)
-	{
 		len++;
-	}
 	str = (char *)malloc(len + 1);
 	if (!str)
 		return (NULL);
@@ -49,9 +57,9 @@ static char *fill_word(char const *s, char c)
 	return (str);
 }
 
-static void ft_free(char **result)
+static void	ft_free(char **result)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (result[i])
@@ -62,11 +70,11 @@ static void ft_free(char **result)
 	free(result);
 }
 
-static char **fill_result(char **result, const char *s, char c)
+static char	**fill_result(char **result, const char *s, char c)
 {
-	int i;
-	int j;
-	int start;
+	int	i;
+	int	j;
+	int	start;
 
 	i = 0;
 	j = 0;
@@ -91,11 +99,11 @@ static char **fill_result(char **result, const char *s, char c)
 	return (result);
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	char **result;
-	int word_count;
-    
+	char	**result;
+	int		word_count;
+
 	if (!s)
 		return (NULL);
 	word_count = count_words(s, c);

@@ -1,23 +1,40 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aschalh <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/09 20:28:59 by aschalh           #+#    #+#             */
+/*   Updated: 2025/04/09 20:50:35 by aschalh          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void check_errors(void)
+void	check_errors(void)
 {
-    write(2, "Error\n", 6);
-    exit(1);
+	write(2, "Error\n", 6);
+	exit(1);
 }
-int ft_isdigit(int c)
+
+int	ft_isdigit(int c)
 {
-    if (c >= '0' && c <= '9')
-        return (1);
-    else
-        return (0);
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
 }
+
 void	check_double(t_list **a)
 {
-	t_list *current = *a;
+	t_list	*current;
+	t_list	*scanner;
+
+	current = *a;
 	while (current)
 	{
-		t_list *scanner = current->next;
+		scanner = current->next;
 		while (scanner)
 		{
 			if (scanner->content == current->content)
@@ -27,15 +44,18 @@ void	check_double(t_list **a)
 		current = current->next;
 	}
 }
+
 void	check_arguments(char *av)
 {
-	int	i = 0;
+	int		i;
+	char	c;
+	char	next;
 
+	i = 0;
 	while (av[i])
 	{
-		char c = av[i];
-		char next = av[i + 1];
-
+		c = av[i];
+		next = av[i + 1];
 		if (ft_isdigit(c) && (next == '+' || next == '-'))
 			check_errors();
 		if ((c == '+' || c == '-') && !ft_isdigit(next))

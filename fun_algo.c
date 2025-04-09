@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fun_algo.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aschalh <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/09 20:31:15 by aschalh           #+#    #+#             */
+/*   Updated: 2025/04/09 20:53:51 by aschalh          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_list	*last_node(t_list *lst)
@@ -8,10 +20,12 @@ t_list	*last_node(t_list *lst)
 		lst = lst->next;
 	return (lst);
 }
+
 int	assia(int value, t_list **lst)
 {
-	t_list	*tmp = *lst;
+	t_list	*tmp;
 
+	tmp = *lst;
 	while (tmp)
 	{
 		if (value == tmp->content)
@@ -20,11 +34,14 @@ int	assia(int value, t_list **lst)
 	}
 	return (0);
 }
+
 int	position(t_list **a, int value)
 {
-	t_list	*current = *a;
-	int		pos = 0;
+	t_list	*current;
+	int		pos;
 
+	current = *a;
+	pos = 0;
 	while (current)
 	{
 		if (value == current->content)
@@ -34,16 +51,21 @@ int	position(t_list **a, int value)
 	}
 	return (-1);
 }
+
 int	search(int *sorted_arr, t_list **a, int start, int end)
 {
-	t_list	*tmp = *a;
+	t_list	*tmp;
+	int		i;
 
+	tmp = *a;
+	i = start;
 	while (tmp)
 	{
-		for (int i = start; i <= end; i++)
+		while (i <= end)
 		{
 			if (sorted_arr[i] == tmp->content)
 				return (sorted_arr[i]);
+			i++;
 		}
 		tmp = tmp->next;
 	}

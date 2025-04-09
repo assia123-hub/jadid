@@ -1,35 +1,48 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_small.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aschalh <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/09 20:30:43 by aschalh           #+#    #+#             */
+/*   Updated: 2025/04/09 21:08:05 by aschalh          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int small(t_list **a)
+int	small(t_list **a)
 {
-	t_list *tmp;
-	int i;
+	t_list	*tmp;
+	int		i;
 
 	tmp = (*a);
 	i = (*a)->content;
 	while (tmp)
 	{
 		if (i > tmp->content)
-		{
 			i = tmp->content;
-		}
 		tmp = tmp->next;
 	}
 	return (i);
 }
 
-void sort_two(t_list **a)
+void	sort_two(t_list **a)
 {
 	if ((*a)->content > (*a)->next->content)
 		sa(a);
 }
 
-void sort_three(t_list **a)
+void	sort_three(t_list **a)
 {
-	int first = (*a)->content;
-	int second = (*a)->next->content;
-	int third = (*a)->next->next->content;
+	int	first;
+	int	second;
+	int	third;
 
+	first = (*a)->content;
+	second = (*a)->next->content;
+	third = (*a)->next->next->content;
 	if (first > second && second < third && first < third)
 		sa(a);
 	else if (first > second && second > third)
@@ -48,10 +61,10 @@ void sort_three(t_list **a)
 		rra(a);
 }
 
-void sort_four_five(t_list **a, t_list **b)
+void	sort_four_five(t_list **a, t_list **b)
 {
-	int size;
-	int min_pos;
+	int	size;
+	int	min_pos;
 
 	while (return_number(*a) > 3)
 	{
@@ -75,9 +88,9 @@ void sort_four_five(t_list **a, t_list **b)
 		pa(a, b);
 }
 
-void sort_small(t_list **a, t_list **b)
+void	sort_small(t_list **a, t_list **b)
 {
-	int size;
+	int	size;
 
 	size = return_number(*a);
 	if (size == 2)
