@@ -59,12 +59,12 @@ void	rotate(t_list **stack);
 void	swap(t_list **stack);
 void	check_errors(void);
 void	range_update(int *s, int *e, int offset, int max);
-void	push_a(t_list **a, t_list **b, int *tab, int mid);
-void	push_b(t_list **a, t_list **b, int *tab);
 void	sort_two(t_list **a);
 void	sort_three(t_list **a);
 void	sort_four_five(t_list **a, t_list **b);
 void	sort_small(t_list **a, t_list **b);
 void	check_digits(char *str);
+void	push_chunks(t_list **a, t_list **b, int *tab, int size);
+void	push_back_sorted(t_list **a, t_list **b);
 
 #endif

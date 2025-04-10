@@ -2,9 +2,12 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: aschalh <marvin@42.fr>                     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+        
+	+:+     */
+/*   By: aschalh <marvin@42.fr>                     +#+  +:+      
+	+#+        */
+/*                                                +#+#+#+#+#+  
+	+#+           */
 /*   Created: 2025/04/09 20:28:59 by aschalh           #+#    #+#             */
 /*   Updated: 2025/04/09 20:50:35 by aschalh          ###   ########.fr       */
 /*                                                                            */
@@ -22,8 +25,7 @@ int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);
-	else
-		return (0);
+	return (0);
 }
 
 void	check_double(t_list **a)
@@ -51,6 +53,8 @@ void	check_arguments(char *av)
 	char	c;
 	char	next;
 
+	if (!av || ft_strlen(av) == 0)
+		check_errors();
 	i = 0;
 	while (av[i])
 	{

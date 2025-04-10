@@ -12,8 +12,8 @@
 
 NAME = push_swap
 NAME_B = checker
-CFILES = check.c  ft_split.c helper_sort.c helper.c push_swap.c push.c reverse_rotate.c rotate.c sort_large.c\
-		sort_small.c swap.c fun_main.c fun_algo.c
+CFILES = check.c  ft_split.c helper.c push_swap.c push.c reverse_rotate.c rotate.c sort_large.c\
+		sort_small.c swap.c fun_main.c fun_algo.c help_sort.c
 
 OBJ = ${CFILES:.c=.o}
 FLAG = -Wall -Werror -Wextra

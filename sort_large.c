@@ -2,11 +2,11 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   sort_large.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
+/*                                                    +:+ +:+
 	+:+     */
-/*   By: aschalh <marvin@42.fr>                     +#+  +:+      
+/*   By: aschalh <marvin@42.fr>                     +#+  +:+
 	+#+        */
-/*                                                +#+#+#+#+#+  
+/*                                                +#+#+#+#+#+
 	+#+           */
 /*   Created: 2025/04/09 20:30:34 by aschalh           #+#    #+#             */
 /*   Updated: 2025/04/09 20:30:36 by aschalh          ###   ########.fr       */
@@ -47,11 +47,11 @@ int	*change_array(t_list **a)
 	int		i;
 
 	size = return_number(*a);
+	tmp = *a;
+	i = 0;
 	arr = malloc(sizeof(int) * size);
 	if (!arr)
 		return (NULL);
-	tmp = *a;
-	i = 0;
 	while (tmp)
 	{
 		arr[i] = tmp->content;
@@ -64,28 +64,20 @@ int	*change_array(t_list **a)
 
 void	sort100(t_list **a, t_list **b)
 {
-	int		len;
-	int		mid;
 	int		*tab;
 
-	len = return_number(*a);
-	mid = len / 2 - 1;
 	tab = change_array(a);
-	push_a(a, b, tab, mid);
-	push_b(a, b, tab);
+	push_chunks(a, b, tab, 100);
+	push_back_sorted(a, b);
+	free(tab);
 }
 
 void	sort500(t_list **a, t_list **b)
 {
-	int		len;
-	int		mid;
 	int		*tab;
 
-	len = return_number(*a);
-	mid = len / 2 - 1;
 	tab = change_array(a);
-	push_a(a, b, tab, mid);
-	push_b(a, b, tab);
-	while (tab[return_number(*a) - 1] != last_node(*a)->content)
-		rra(a);
+	push_chunks(a, b, tab, 500);
+	push_back_sorted(a, b);
+	free(tab);
 }

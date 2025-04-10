@@ -71,3 +71,15 @@ int	search(int *sorted_arr, t_list **a, int start, int end)
 	}
 	return (sorted_arr[start]);
 }
+
+void	range_update(int *s, int *e, int offset, int max)
+{
+	if (*s - offset < 0)
+		*s = 0;
+	else
+		*s -= offset;
+	if (*e + offset > max)
+		*e = max;
+	else
+		*e += offset;
+}
