@@ -40,26 +40,49 @@ static void	helper(t_list **a, char **av)
 	while (ar[++i])
 		add_node_last(a, new_node(update_atoi(ar[i])));
 	free(k);
+	ft_free(ar);
 	check_double(a);
 }
 
-int	main(int ac, char **av)
+void    free_stack(t_list **stack)
 {
-	t_list	*a;
-	t_list	*b;
+    t_list  *tmp;
+    t_list  *current;
 
-	a = NULL;
-	b = NULL;
-	if (ac == 1)
-		exit(1);
-	helper(&a, av);
-	if (wach_mertba(&a))
-		return (0);
-	if (return_number(a) <= 5)
-		sort_small(&a, &b);
-	else if (return_number(a) <= 250)
-		sort100(&a, &b);
-	else
-		sort500(&a, &b);
-	return (0);
+    if (!stack || !*stack)
+        return;
+    current = *stack;
+    while (current)
+    {
+        tmp = current;
+        current = current->next;
+        free(tmp);
+    }
+    *stack = NULL;
+}
+
+int main(int ac, char **av)
+{
+    t_list  *a;
+    t_list  *b;
+
+    a = NULL;
+    b = NULL;
+    if (ac == 1)
+        exit(1);
+    helper(&a, av);
+    if (wach_mertba(&a))
+    {
+        free_stack(&a);
+        return (0);
+    }
+    if (return_number(a) <= 5)
+        sort_small(&a, &b);
+    else if (return_number(a) <= 250)
+        sort100(&a, &b);
+    else
+        sort500(&a, &b);
+    free_stack(&a);
+    free_stack(&b);
+    return (0);
 }

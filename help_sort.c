@@ -14,28 +14,28 @@
 
 void	push_chunks(t_list **a, t_list **b, int *tab, int size)
 {
-	int	chunk_size;
-	int	i;
+	int	chunk_size = 30;
+	int	i = 0;
 	int	current;
 
-	chunk_size = 30;
-	i = 0;
 	while (*a)
 	{
 		current = (*a)->content;
-		if (current <= tab[i])
+		if (i < size && current <= tab[i])
 		{
 			pb(a, b);
 			i++;
 		}
-		else if (current <= tab[i + chunk_size])
+		else if ((i + chunk_size) < size && current <= tab[i + chunk_size])
 		{
 			pb(a, b);
 			rb(b);
 			i++;
 		}
 		else
+		{
 			ra(a);
+		}
 	}
 }
 

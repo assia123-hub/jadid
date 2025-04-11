@@ -66,5 +66,6 @@ void	sort_small(t_list **a, t_list **b);
 void	check_digits(char *str);
 void	push_chunks(t_list **a, t_list **b, int *tab, int size);
 void	push_back_sorted(t_list **a, t_list **b);
-
+void    free_stack(t_list **stack);
+void	ft_free(char **result);
 #endif

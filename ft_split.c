@@ -57,7 +57,7 @@ static char	*fill_word(char const *s, char c)
 	return (str);
 }
 
-static void	ft_free(char **result)
+void	ft_free(char **result)
 {
 	int	i;
 
